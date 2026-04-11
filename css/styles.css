@@ -134,3 +134,132 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* =========================================
+   5. Услуги и Фильтрация (Premium UI)
+   ========================================= */
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+
+/* Фильтры */
+.filter-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap; /* Для мобильных */
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    border-radius: 2rem; /* Скругленные "пилюли" */
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+.filter-btn.active {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+}
+
+/* Flexbox Сетка услуг */
+.services-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    transition: opacity 0.4s ease;
+}
+
+.service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: 2px; /* Острые, строгие углы */
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+/* На планшетах и десктопах карточки занимают по 50% минус отступ */
+@media (min-width: 768px) {
+    .service-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Легкое поднятие при наведении */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Очень мягкая тень */
+}
+
+[data-theme="dark"] .service-card:hover {
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.02);
+}
+
+.card-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: inline-block;
+    padding-bottom: 0.2rem;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Утилиты для JS (Анимация загрузки) */
+.hidden {
+    display: none !important;
+}
+
+.opacity-0 {
+    opacity: 0.3;
+    pointer-events: none; /* Отключаем клики во время загрузки */
+}
+
+/* Минималистичный лоадер */
+.loader {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-color);
+    border-top: 2px solid var(--text-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

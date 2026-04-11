@@ -36,3 +36,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+/* =========================================
+       Интерактив 2: Фильтрация услуг (setTimeout / API Mock)
+       Требования: setTimeout, Event Listeners, DOM Manipulation
+       ========================================= */
+       
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const servicesGrid = document.getElementById('services-grid');
+    const cards = document.querySelectorAll('.service-card');
+    const loader = document.getElementById('loader');
+
+    if (filterBtns.length > 0 && servicesGrid) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // 1. Убираем класс active у всех кнопок и вешаем на нажатую
+                filterBtns.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+
+                const filterValue = e.target.getAttribute('data-filter');
+
+                // 2. Имитация обращения к базе данных (setTimeout)
+                // Сначала делаем сетку полупрозрачной и показываем лоадер
+                servicesGrid.classList.add('opacity-0');
+                loader.classList.remove('hidden');
+
+                // Задержка 600мс для эффекта "работы сервера"
+                setTimeout(() => {
+                    // 3. Логика фильтрации (манипуляция DOM)
+                    cards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // 4. Возвращаем прозрачность и прячем лоадер
+                    servicesGrid.classList.remove('opacity-0');
+                    loader.classList.add('hidden');
+                }, 600);
+            });
+        });
+    }
