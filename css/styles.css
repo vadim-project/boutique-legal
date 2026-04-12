@@ -1,6 +1,4 @@
-/* =========================================
-   1. CSS Variables & Theme Setup
-   ========================================= */
+
 :root {
     /* Light Theme (RESIDIA Palette) */
     --bg-color: #FFFFFF;
@@ -24,9 +22,6 @@
     --card-bg: #2D2D2D;
 }
 
-/* =========================================
-   2. Reset & Base (Mobile First)
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -46,9 +41,6 @@ body {
     padding: 0 var(--spacing-unit);
 }
 
-/* =========================================
-   3. Layout & Components (Mobile First)
-   ========================================= */
    
 /* Flexbox #1: Header */
 .header-inner {
@@ -60,16 +52,16 @@ body {
 }
 
 .main-nav {
-    display: none; /* Скрыто на мобильных (пока не добавим бургер) */
+    display: none;
 }
 
 
-/* =========================================
-   Первый экран (Hero) - RESIDIA
-   ========================================= */
+
+/* first screen */
+
 .hero-premium {
     padding: 6rem 0;
-    text-align: center; /* Выравниваем весь текст внутри секции по центру */
+    text-align: center; 
 }
 
 .hero-badge {
@@ -78,10 +70,11 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.4rem 1rem;
-    border: 1px solid var(--border-color);
+    border: 2px solid gray;
     border-radius: 2rem;
     margin-bottom: 2rem;
-    color: var(--text-muted);
+    color: var(--card-bg);
+    background-color: var(--accent-color);
 }
 
 .hero-title-large {
@@ -106,7 +99,6 @@ body {
     flex-wrap: wrap;
 }
 
-/* Новые премиальные кнопки */
 .btn-solid, .btn-outline {
     display: inline-flex;
     align-items: center;
@@ -138,10 +130,82 @@ body {
     border-color: var(--text-color);
 }
 
-/* Grid #1: Features */
+.text-center {
+    text-align: center;
+}
+
+.text-accent {
+    color: var(--accent-color);
+}
+
+.border-top-bottom {
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    padding: 3rem 0;
+    margin-bottom: 5rem;
+}
+
+.stats-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.approach-section {
+    padding-bottom: 5rem;
+}
+
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.card-icon {
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.premium-card h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.premium-card p {
+    color: var(--text-muted);
+}
+
 .features-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Mobile: 1 колонка */
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 3rem 0;
 }
@@ -153,11 +217,6 @@ body {
     border-radius: 4px;
 }
 
-/* =========================================
-   4. Media Queries (min. 2 breakpoints req)
-   ========================================= */
-
-/* Breakpoint 1: Tablets */
 @media (min-width: 768px) {
     .container {
         max-width: 720px;
@@ -165,7 +224,7 @@ body {
     }
 
     .main-nav {
-        display: flex; /* Flexbox #2: Navigation */
+        display: flex;
         gap: 2rem;
         align-items: center;
     }
@@ -193,9 +252,7 @@ body {
     }
 }
 
-/* =========================================
-   5. Услуги и Фильтрация (Premium UI)
-   ========================================= */
+/* Услуги и фильтрация */
 
 .page-title {
     font-size: 2.5rem;
@@ -216,7 +273,7 @@ body {
     display: flex;
     gap: 1rem;
     margin-bottom: 3rem;
-    flex-wrap: wrap; /* Для мобильных */
+    flex-wrap: wrap; 
 }
 
 .filter-btn {
@@ -225,7 +282,7 @@ body {
     color: var(--text-muted);
     padding: 0.6rem 1.2rem;
     cursor: pointer;
-    border-radius: 2rem; /* Скругленные "пилюли" */
+    border-radius: 2rem; 
     font-size: 0.9rem;
     transition: all 0.3s ease;
 }
@@ -241,7 +298,6 @@ body {
     border-color: var(--text-color);
 }
 
-/* Flexbox Сетка услуг */
 .services-flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -253,12 +309,11 @@ body {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     padding: 2.5rem;
-    border-radius: 2px; /* Острые, строгие углы */
+    border-radius: 2px; 
     width: 100%;
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
 }
 
-/* На планшетах и десктопах карточки занимают по 50% минус отступ */
 @media (min-width: 768px) {
     .service-card {
         width: calc(50% - 1rem);
@@ -267,7 +322,7 @@ body {
 
 .service-card:hover {
     transform: translateY(-5px); /* Легкое поднятие при наведении */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Очень мягкая тень */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
 }
 
 [data-theme="dark"] .service-card:hover {
@@ -296,17 +351,14 @@ body {
     font-size: 0.95rem;
 }
 
-/* Утилиты для JS (Анимация загрузки) */
 .hidden {
     display: none !important;
 }
 
 .opacity-0 {
     opacity: 0.3;
-    pointer-events: none; /* Отключаем клики во время загрузки */
+    pointer-events: none; 
 }
-
-/* Минималистичный лоадер */
 .loader {
     width: 24px;
     height: 24px;
@@ -322,12 +374,10 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* =========================================
-   6. Форма заявки (Form Wizard)
-   ========================================= */
+/* форма */
 
 .container-small {
-    max-width: 600px !important; /* Узкий контейнер для комфортного чтения формы */
+    max-width: 600px !important; 
     margin: 0 auto;
 }
 
@@ -355,7 +405,6 @@ body {
     color: var(--text-color);
 }
 
-/* Скрываем шаги, которые не активны */
 .form-step {
     display: none;
     animation: fadeIn 0.4s ease forwards;
