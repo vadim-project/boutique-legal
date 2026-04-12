@@ -2,12 +2,12 @@
    1. CSS Variables & Theme Setup
    ========================================= */
 :root {
-    /* Light Theme (Default) */
-    --bg-color: #FAFAFA;
-    --text-color: #1A1A1A;
-    --text-muted: #666666;
-    --accent-color: #2C2C2C;
-    --border-color: #E0E0E0;
+    /* Light Theme (RESIDIA Palette) */
+    --bg-color: #FFFFFF;
+    --text-color: #2D3748;      /* Было #1A1A1A, стал Глубокий графитовый */
+    --text-muted: #575F6C;      /* Тёмно-серый */
+    --accent-color: #10B981;    /* Изумрудный акцент */
+    --border-color: #E2E8F0;    /* Светло-серая линия */
     --card-bg: #FFFFFF;
     
     /* Typography */
@@ -16,12 +16,12 @@
 }
 
 [data-theme="dark"] {
-    --bg-color: #121212;
-    --text-color: #F5F5F5;
-    --text-muted: #A0A0A0;
-    --accent-color: #FFFFFF;
+    --bg-color: #1A1A1A;
+    --text-color: #F7FAFC;
+    --text-muted: #ABAFB6;
+    --accent-color: #10B981;
     --border-color: #333333;
-    --card-bg: #1E1E1E;
+    --card-bg: #2D2D2D;
 }
 
 /* =========================================
