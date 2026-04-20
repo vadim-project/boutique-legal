@@ -1,7 +1,7 @@
-
 :root {
     /* Light Theme (RESIDIA Palette) */
-    --bg-color: #FFFFFF;
+    --bg-color: #F8F9FA;        /* Благородный светло-серый фон */
+    --card-pure-white: #FFFFFF; /* Чисто белый для карточек */
     --text-color: #2D3748;      /* Было #1A1A1A, стал Глубокий графитовый */
     --text-muted: #575F6C;      /* Тёмно-серый */
     --accent-color: #10B981;    /* Изумрудный акцент */
@@ -128,13 +128,6 @@ body {
     color: var(--accent-color);
 }
 
-.border-top-bottom {
-    border-top: 2px solid var(--border-color);
-    border-bottom: 2px solid var(--border-color);
-    padding: 3rem 0;
-    margin-bottom: 5rem;
-}
-
 .stats-flex {
     display: flex;
     justify-content: space-between;
@@ -176,21 +169,27 @@ body {
     font-size: 1.1rem;
 }
 
+/* Обновленные стили для "Почему RESIDIA" */
 .card-icon {
-    font-family: monospace;
-    font-size: 1.2rem;
-    color: var(--text-muted);
+    font-size: 4rem; 
+    font-family: var(--font-main);
+    font-weight: 700;
+    color: var(--accent-color); 
+    line-height: 1;
     margin-bottom: 1.5rem;
+    opacity: 0.9;
 }
 
-.premium-card h3 {
+.premium-card h3, .feature-card h3 {
     font-size: 1.4rem;
     font-weight: 500;
     margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
-.premium-card p {
+.premium-card p, .feature-card p {
     color: var(--text-muted);
+    line-height: 1.6;
 }
 
 .features-grid {
@@ -201,10 +200,17 @@ body {
 }
 
 .feature-card {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border: 1px solid var(--border-color);
+    background-color: var(--card-pure-white);
+    padding: 3rem 2.5rem;
     border-radius: 4px;
+    border-top: 4px solid var(--accent-color); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08); 
 }
 
 .logo {
@@ -362,34 +368,6 @@ body {
 }
 
 /* Фильтры */
-.filter-nav {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap; 
-}
-
-.filter-btn {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-muted);
-    padding: 0.6rem 1.2rem;
-    cursor: pointer;
-    border-radius: 2rem; 
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.filter-btn:hover {
-    border-color: var(--text-color);
-    color: var(--text-color);
-}
-
-.filter-btn.active {
-    background: var(--accent-color); 
-    color: #FFFFFF;
-    border-color: var(--accent-color);
-}
 
 .services-flex-container {
     display: flex;
@@ -504,9 +482,6 @@ body {
 }
 
 
-.text-about-service {
-    text-align: center;
-}
 /* =========================================
    Состояние ТЕМНОЙ ТЕМЫ (Анимация переключения)
    ========================================= */
@@ -553,6 +528,7 @@ body {
     opacity: 0.3;
     pointer-events: none; 
 }
+
 .loader {
     width: 24px;
     height: 24px;
@@ -565,110 +541,10 @@ body {
 }
 
    /* Динамичная бегущая строка (Marquee) */ 
-.marquee-wrapper {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    padding: 2rem 0; 
-    margin-bottom: 0;
-    border-bottom: none;
-}
-
-.marquee-content {
-    display: inline-block;
-    animation: marqueeScroll 20s linear infinite;
-    font-size: 1.5rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-color);
-}
-
-.marquee-content span {
-    margin: 0 1.5rem;
-}
-
-@keyframes marqueeScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
 
 /* =========================================
    Темный блок CTA (Call to Action)
    ========================================= */
-.cta-dark {
-    background-color: var(--text-color); /* Глубокий графитовый фон */
-    color: var(--bg-color); /* Белый текст */
-    padding: 6rem 0;
-    margin-top: 0; /* Приклеиваем прямо к бегущей строке */
-}
-
-.cta-title {
-    font-size: 3rem;
-    font-weight: 400;
-    margin-bottom: 1rem;
-    color: var(--bg-color);
-}
-
-.cta-desc {
-    color: var(--border-color); /* Используем светло-серый для описания */
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 3rem;
-}
-
-.cta-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-}
-
-/* Светлая кнопка для темного фона */
-.btn-solid-light {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 3rem;
-    font-size: 1rem;
-    text-decoration: none;
-    background-color: var(--accent-color); /* Изумрудная кнопка */
-    color: #FFFFFF;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-.btn-solid-light:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
-}
-
-/* Минималистичные соцсети */
-.social-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.social-links a {
-    color: var(--bg-color);
-    text-decoration: none;
-    font-family: monospace;
-    font-size: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: #FFFFFF;
-}
 
 @keyframes spin {
     0% { transform: rotate(0deg); }

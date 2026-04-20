@@ -116,8 +116,8 @@
         <section class="approach-section">
             <div class="container">
                 <div class="section-header text-center">
-                    <h1 class="hero-title-large" >Почему <span>мы</span>?</h1>
-                <p class="hero-subtitle-large" style="color: var(--accent-color);">Решения по легализации и бизнес-сопровождению в Варшаве, Польша.</p>
+                    <h2 class="section-title">Почему RESIDIA<span class="text-accent">.</span></h2>
+                    <p class="section-desc">Индивидуальный подход к процессам легализации.</p>
                 </div>
 
                 <div class="features-grid">
@@ -140,16 +140,75 @@
             </div>
         </section>
         
-        <section id="contact" style="padding: 6rem 0; text-align: center;">
-            <div class="container">
-                <h2>Оставить заявку</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem;">Блок формы появится здесь</p>
+        <section id="contact" class="booking-section">
+            <div class="container container-small">
+                <h2 class="page-title" style="text-align: center;">Начать сотрудничество</h2>
+                <p class="page-subtitle" style="text-align: center; margin-bottom: 3rem;">Оставьте вводные данные. Мы проанализируем ваш кейс и свяжемся в течение 24 часов.</p>
+
+                <div class="form-wizard">
+                    <div class="wizard-progress">
+                        <div class="progress-step active" data-step="1">1. Контакты</div>
+                        <div class="progress-step" data-step="2">2. Задача</div>
+                    </div>
+
+                    <form id="booking-form" class="boutique-form" novalidate>
+                        <div class="form-step active" id="step-1">
+                            <div class="form-group">
+                                <label for="name">Имя и Фамилия</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                <span class="error-message">Пожалуйста, введите ваше имя</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Электронная почта</label>
+                                <input type="email" id="email" name="email" placeholder="hello@example.com" required>
+                                <span class="error-message">Введите корректный email</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Телефон (Польша)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+48 XXX XXX XXX" required>
+                                <span class="error-message">Формат: +48 и 9 цифр</span>
+                            </div>
+
+                            <button type="button" class="btn-next" id="btn-next">Далее &rarr;</button>
+                        </div>
+
+                        <div class="form-step" id="step-2">
+                            <div class="form-group">
+                                <label for="service">Интересующая услуга</label>
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>Выберите из списка...</option>
+                                    <option value="b2b-company">Регистрация компании (Sp. z o.o.)</option>
+                                    <option value="b2b-incubator">Бизнес-инкубатор</option>
+                                    <option value="b2c-karta">Karta Pobytu</option>
+                                    <option value="b2c-bluecard">Blue Card</option>
+                                    <option value="other">Другое / Консультация</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Краткое описание ситуации (опционально)</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Например: у меня IT-контракт B2B, хочу легализоваться..."></textarea>
+                            </div>
+
+                            <div class="wizard-actions">
+                                <button type="button" class="btn-prev" id="btn-prev">&larr; Назад</button>
+                                <button type="submit" class="btn-submit">Отправить запрос</button>
+                            </div>
+                        </div>
+
+                        <div class="form-success hidden" id="form-success">
+                            <h3>Заявка принята</h3>
+                            <p>Мы получили ваши данные и скоро свяжемся с вами.</p>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
-
     </main>
+
     <div class="fab-wrapper" id="fab-wrapper">
-        
         <div class="fab-menu">
             <a href="#" class="fab-action" style="--delay: 0.25s;" aria-label="Viber">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21.573 13.914c-.056-.519-.341-1.031-.837-1.492l-2.023-1.89c-.585-.547-1.417-.676-2.126-.33l-1.36.666c-.309.151-.663.084-.91-.176-.906-.95-2.097-2.315-3.058-3.465-.213-.257-.225-.632-.027-.9l.865-1.18c.451-.614.542-1.428.232-2.126L11.13.96C10.743.111 9.943-.284 9.1.181l-1.66.924C6.353 1.708 5.56 2.825 5.618 4.04c.148 3.125 1.547 6.452 3.86 9.176 2.378 2.798 5.632 4.671 8.851 5.378 1.215.267 2.457-.202 3.255-1.229l1.107-1.427c.563-.727.42-1.688-.22-2.285l-.898-.739z"/></svg>
