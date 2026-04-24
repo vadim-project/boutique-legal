@@ -926,6 +926,82 @@ a.contact-item:hover .contact-value {
     line-height: 1.5;
 }
 
+/* =========================================
+   CTA Ribbon (Separator)
+   ========================================= */
+.cta-ribbon {
+    padding: 5rem 0;
+    /* Мы используем твой существующий класс .bg-dark-ribbon, 
+       поэтому фон и отступы подтянутся автоматически */
+}
+
+.cta-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cta-text {
+    font-size: 2.2rem;
+    color: var(--bg-color); /* Светлый текст на темном фоне */
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.cta-subtext {
+    color: var(--border-color); /* Приглушенный текст */
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.dot-accent {
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: block;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.cta-logo-accent {
+    /* ИЗМЕНЕНИЕ 1: Драматическое увеличение высоты */
+    height: 280px; 
+    width: auto;
+    
+    /* Магия: делаем SVG белым специально для этой секции */
+    filter: brightness(0) invert(1); 
+    
+    opacity: 0.5; /* Почти полная непрозрачность для силы */
+    transition: all 0.3s ease;
+ 
+}
+
+.cta-ribbon:hover .cta-logo-accent {
+    opacity: 1; /* Полное высветление при наведении на всю ленту */
+    transform: scale(1.2); /* Легкий эффект пульсации */
+}
+
+.dot-accent {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .cta-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    .cta-text {
+        font-size: 1.8rem;
+    }
+    .cta-logo-accent {
+        height: 80px; 
+        margin-left: 0; 
+        margin-top: 2rem;
+    }
+}
+
 /* 3. Убедись, что обертка имеет относительное позиционирование */
 .contact-form-wrap {
     position: relative;
