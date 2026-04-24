@@ -887,35 +887,50 @@ a.contact-item:hover .contact-value {
     justify-content: center;
     text-align: center;
     background-color: var(--bg-color);
-}
-
-.success-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background-color: var(--accent-color);
-    color: #fff;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-}
-
-/* Позиционирование блока успеха поверх формы */
-.cf-success {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: var(--bg-color);
     z-index: 5;
+    padding: 2rem;
     animation: fadeIn 0.5s ease forwards;
 }
 
+/* Крупная, статусная иконка */
+.success-icon {
+    width: 90px; /* Увеличили размер круга */
+    height: 90px;
+    border-radius: 50%;
+    border: 2.5px solid var(--accent-color); /* Сделали линию чуть толще */
+    
+    /* Элегантная галочка через SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17L4 12'/%3E%3C/svg%3E");
+    background-size: 45px; /* Увеличили размер самой галочки */
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    margin-bottom: 2rem; /* Отступ до текста */
+    flex-shrink: 0;
+}
+
+/* Заголовок "Заявка принята" */
+.cf-success h3 {
+    font-size: 2rem; /* Сделали заметно крупнее */
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+/* Описание под заголовком */
+.cf-success p {
+    font-size: 1.1rem; /* Чуть увеличили текст */
+    color: var(--text-muted);
+    max-width: 300px;
+    line-height: 1.5;
+}
+
+/* 3. Убедись, что обертка имеет относительное позиционирование */
+.contact-form-wrap {
+    position: relative;
+    min-height: 400px; /* Должно совпадать с формой */
+}
 .contact-form.hidden {
     opacity: 0;
     pointer-events: none;
