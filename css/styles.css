@@ -1,17 +1,39 @@
     :root {
-        /* Light Theme (RESIDIA Palette) */
-        --bg-color: #F8F9FA;        /* Благородный светло-серый фон */
-        --card-pure-white: #FFFFFF; /* Чисто белый для карточек */
-        --text-color: #2D3748;      /* Было #1A1A1A, стал Глубокий графитовый */
-        --text-muted: #575F6C;      /* Тёмно-серый */
-        --accent-color: #10B981;    /* Изумрудный акцент */
-        --border-color: #CBD5E0;    /* Светло-серая линия */
-        --card-bg: #FFFFFF;
-        
+    --bg-color: #F8F9FA;
+    --card-pure-white: #ffffff;
+    --text-color: #2D3748;
+    --text-muted: #575F6C;
+    --accent-color: #10B981;
+    --border-color: #b3bbc3;
+    --card-bg: #FFFFFF;
+    --font-main: 'Helvetica Neue', Arial, sans-serif;
+    --spacing-unit: 1rem;
+    
+
+    --ribbon-bg: #2D3748;
+    --ribbon-text: #F8F9FA;
+    --ribbon-muted: #CBD5E0;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0F1117;
+    --card-pure-white: #1E2130;   
+    --text-color: #E8EAF0;
+    --text-muted: #8B92A5;
+    --accent-color: #10B981;
+    --border-color: #2E3450;     
+    --card-bg: #1E2130; 
+
         /* Typography */
-        --font-main: 'Helvetica Neue', Arial, sans-serif;
-        --spacing-unit: 1rem;
+    --font-main: 'Helvetica Neue', Arial, sans-serif;
+    --spacing-unit: 1rem;
     }
+
+    [data-theme="dark"] .service-card,
+    [data-theme="dark"] .feature-card {
+    box-shadow: 0 0 0 1px var(--border-color), 
+                0 4px 24px rgba(0, 0, 0, 0.35);
+}
 
 
     * {
@@ -124,25 +146,27 @@
         border-radius: 2px; 
     }
 
-    .btn-solid {
-        background-color: var(--text-color);
-        color: var(--bg-color);
-        border: 1px solid var(--text-color);
-    }
+   .btn-solid {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    transition: all 0.3s ease;
+}
 
     .btn-solid:hover {
         opacity: 0.9;
     }
 
     .btn-outline {
-        background-color: transparent;
-        color: var(--text-color);
-        border: 1px solid var(--border-color);
-    }
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
 
     .btn-outline:hover {
-        border-color: var(--text-color);
-    }
+    border-color: var(--text-color);
+}
 
     .text-center {
         text-align: center;
@@ -229,13 +253,13 @@
         padding: 3rem 2.5rem;
         border-radius: 4px;
         border-top: 4px solid var(--accent-color); 
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
         transition: all 0.3s ease;
     }
 
     .feature-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08); 
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
     }
 
     .logo {
@@ -297,7 +321,6 @@
         gap: 12px;
     }
 
-    /* Иконки соцсетей */
     .fab-action {
         width: 48px;
         height: 48px;
@@ -309,8 +332,6 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        
-        /* Спрятаны (прозрачные и опущены вниз) */
         opacity: 0;
         transform: translateY(20px) scale(0.8);
         pointer-events: none;
@@ -341,27 +362,28 @@
     .fab-wrapper.is-open .fab-icon-question { opacity: 0; transform: rotate(90deg) scale(0.5); }
     .fab-wrapper.is-open .fab-icon-close { opacity: 1; transform: rotate(0) scale(1); }
 
-    @media (min-width: 768px) {
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-        }
+@media (min-width: 768px) {
+    .container {
+    max-width: 720px;
+    margin: 0 auto;
+    }
 
-        .main-nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+    .main-nav {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
 
-        .main-nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            position: relative;
-            padding-bottom: 4px;
-        }
+    .main-nav a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 4px;
+        transition: color 0.3s ease;
+}   
 
-        .main-nav a::after {
+    .main-nav a::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -370,12 +392,12 @@
             height: 1.5px;
             background-color: var(--accent-color);
             transition: width 0.3s ease;
-        }
+    }
 
-.main-nav a:hover::after,
-.main-nav a.active::after {
-    width: 100%;
-}
+    .main-nav a:hover::after,
+    .main-nav a.active::after {
+        width: 100%;
+    }
 
         .hero-title {
             font-size: 3rem;
@@ -510,19 +532,19 @@
         transition: color 0.4s ease;
     }
 
-    .bg-dark-ribbon {
-        background-color: var(--text-color); /* Глубокий графитовый фон */
-        padding: 5rem 0; /* Делаем ленту чуть шире для солидности */
-        margin-bottom: 5rem;
-    }
+   .bg-dark-ribbon {
+    background-color: var(--ribbon-bg);
+    padding: 5rem 0;
+    margin-bottom: 5rem;
+}
 
     /* Перекрашиваем элементы внутри только этой темной ленты */
-    .bg-dark-ribbon .stat-number {
-        color: var(--bg-color); /* Белые цифры */
-    }
+   .bg-dark-ribbon .stat-number {
+    color: var(--ribbon-text);
+}
 
     .bg-dark-ribbon .stat-label {
-        color: var(--border-color); /* Светло-серый текст, чтобы не сливался */
+        color: var(--ribbon-muted);
     }
 
 
@@ -530,9 +552,9 @@
     Состояние ТЕМНОЙ ТЕМЫ (Анимация переключения)
     ========================================= */
 
-    [data-theme="dark"] .theme-switch {
-        background-color: var(--text-color); 
-    }
+   [data-theme="dark"] .theme-switch {
+    background-color: #2D3347;
+}
 
     [data-theme="dark"] .theme-switch-slider {
         transform: translateX(28px); 
@@ -830,6 +852,26 @@ a.contact-item:hover .contact-value {
     border-radius: 0;
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.contact-form select {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238B92A5' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    padding-right: 1.5rem;
+    cursor: pointer;
+}
+
+.contact-form select option {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
@@ -856,7 +898,7 @@ a.contact-item:hover .contact-value {
     font-size: 1rem;
     cursor: pointer;
     border-radius: 2px;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
     margin-top: 0.5rem;
 }
 
@@ -942,14 +984,14 @@ a.contact-item:hover .contact-value {
 
 .cta-text {
     font-size: 2.2rem;
-    color: var(--bg-color); /* Светлый текст на темном фоне */
+    color: var(--ribbon-text);
     font-weight: 500;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
 }
 
 .cta-subtext {
-    color: var(--border-color); /* Приглушенный текст */
+    color: var(--ribbon-muted);
     font-size: 1.1rem;
     opacity: 0.8;
 }
@@ -1046,12 +1088,9 @@ a.contact-item:hover .contact-value {
 /* =========================================
    Site Footer
    ========================================= */
-/* =========================================
-   Site Footer (Refined & Powerful)
-   ========================================= */
 .site-footer {
-    background-color: var(--text-color);
-    color: var(--bg-color);
+    background-color: var(--ribbon-bg);
+    color: var(--ribbon-text);
     padding: 6rem 0 3rem;
     margin-top: 6rem;
 }
@@ -1085,7 +1124,7 @@ a.contact-item:hover .contact-value {
 
 .footer-mission {
     font-size: 1rem;
-    color: var(--border-color);
+    color: var(--ribbon-muted);
     opacity: 0.7;
     line-height: 1.6;
 }
@@ -1096,7 +1135,7 @@ a.contact-item:hover .contact-value {
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent-color); 
+    color: var(--accent-color);
 }
 
 .footer-socials ul, .footer-legal ul {
@@ -1108,7 +1147,7 @@ a.contact-item:hover .contact-value {
 }
 
 .footer-socials a {
-    color: var(--bg-color);
+    color: var(--ribbon-text);
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
@@ -1119,11 +1158,13 @@ a.contact-item:hover .contact-value {
 .footer-socials a:hover {
     opacity: 1;
     color: var(--accent-color);
-    padding-left: 5px; 
+    padding-left: 5px;
 }
 
-.footer-legal p, .legal-ids span {
-    color: var(--border-color);
+
+.footer-legal p,
+.legal-ids span {
+    color: var(--ribbon-muted);
     opacity: 0.7;
     font-size: 1rem;
     margin-bottom: 0.5rem;
@@ -1137,7 +1178,7 @@ a.contact-item:hover .contact-value {
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 2.5rem;
     display: flex;
     justify-content: space-between;
