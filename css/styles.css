@@ -33,7 +33,18 @@
     [data-theme="dark"] .feature-card {
     box-shadow: 0 0 0 1px var(--border-color), 
                 0 4px 24px rgba(0, 0, 0, 0.35);
-}
+    }
+
+    [data-theme="dark"] .fab-toggle {
+    color: #FFFFFF;
+    }
+
+    
+
+    [data-theme="dark"] .fab-icon-question,
+    [data-theme="dark"] .fab-icon-close {
+    color: var(--ribbon-bg);
+    }
 
 
     * {
