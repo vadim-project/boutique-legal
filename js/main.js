@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    /* =========================================
-       1. Тема (Dark/Light Mode)
-       ========================================= */
+    /*(Dark/Light Mode)*/
     const themeToggleBtn = document.getElementById('theme-toggle');
 const htmlElement = document.documentElement;
 
@@ -21,9 +19,7 @@ if (themeToggleBtn) {
     });
 }
 
-    /* =========================================
-       2. Контактная форма (AJAX + Validation)
-       ========================================= */
+    /*Контактная форма (AJAX + Validation)*/
     const contactForm = document.getElementById('contact-form');
 
     if (contactForm) {
@@ -38,7 +34,6 @@ if (themeToggleBtn) {
             service: document.getElementById('cf-service'),
         };
 
-        // Сброс индикации ошибок при вводе
         Object.values(fields).forEach(input => {
             if (input) {
                 input.addEventListener('input', () => {
@@ -63,7 +58,7 @@ if (themeToggleBtn) {
                 valid = false;
             }
 
-            // Услуга (обязательно)
+            // Услуга 
             if (!fields.service.value) {
                 fields.service.parentElement.classList.add('has-error');
                 valid = false;
@@ -100,9 +95,7 @@ if (themeToggleBtn) {
         });
     }
 
-    /* =========================================
-       3. Плавающая кнопка (FAB)
-       ========================================= */
+    /*Плавающая кнопка (FAB)*/
     const fabToggle = document.getElementById('fab-toggle');
     const fabWrapper = document.getElementById('fab-wrapper');
 
@@ -120,3 +113,88 @@ if (themeToggleBtn) {
         });
     }
 });
+
+const services = [
+    {
+        id: '01',
+        tag: 'B2B',
+        title: 'Регистрация Sp. z o.o.',
+        desc: 'Полный цикл открытия компании в Польше. Подготовка устава, нотариальное сопровождение, регистрация в KRS, VAT и ZUS.'
+    },
+    {
+        id: '02',
+        tag: 'B2B',
+        title: 'Бизнес-инкубатор',
+        desc: 'Легальная работа в Польше без регистрации собственного юрлица. Идеально для фрилансеров и IT-контракторов.'
+    },
+    {
+        id: '03',
+        tag: 'B2C',
+        title: 'Karta Pobytu',
+        desc: 'ВНЖ на основании работы, бизнеса или воссоединения семьи. От аудита документов до получения пластика.'
+    },
+    {
+        id: '04',
+        tag: 'B2C',
+        title: 'Blue Card (EU)',
+        desc: 'Оформление ВНЖ для высококвалифицированных специалистов. Ускоренная процедура и расширенные права для семьи.'
+    }
+];
+
+function renderServices() {
+    const grid = document.getElementById('services-grid');
+    if (!grid) return;
+
+    services.forEach(service => {
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.dataset.category = service.tag.toLowerCase();
+
+        card.innerHTML = `
+            <div class="card-bg-number">${service.id}</div>
+            <div class="card-content">
+                <div class="card-tag">${service.tag}</div>
+                <h3>${service.title}</h3>
+                <p>${service.desc}</p>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+}
+
+renderServices();
+
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.service-card, .feature-card, .stat-item')
+        .forEach(el => {
+            el.classList.add('animate-on-scroll');
+            observer.observe(el);
+        });
+}
+
+initScrollAnimations();
+
+function initStickyHeader() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
+
+initStickyHeader();

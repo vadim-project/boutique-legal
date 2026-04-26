@@ -270,10 +270,10 @@
         transition: all 0.3s ease;
     }
 
-    .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
-    }
+   .service-card:hover .card-bg-number {
+    opacity: 0.25;
+    transform: scale(1.1);
+}
 
     .logo {
         justify-self: start; 
@@ -460,8 +460,8 @@
         right: -10px;
         font-size: 8rem;
         font-weight: 700;
-        color: var(--border-color);
-        opacity: 0.3;
+        color: var(--ribbon-bg);
+        opacity: 0.28;
         line-height: 1;
         transition: all 0.5s ease;
         z-index: 0;
@@ -471,19 +471,16 @@
 
 
     .service-card:hover .card-bg-number {
-        color: var(--accent-color);
-        opacity: 0.07; 
-        transform: scale(1.1);
-    }
+    opacity: 0.25;
+    transform: scale(1.1);
+}
 
     .card-content {
         position: relative;
         z-index: 1;
     }
 
-    /* =========================================
-    Премиальный переключатель темы (Pill Switch)
-    ========================================= */
+
     .theme-switch {
         position: relative;
         display: flex;
@@ -493,15 +490,14 @@
         height: 32px;
         padding: 0 6px;
         border-radius: 30px;
-        background-color: var(--border-color); /* Серый фон по умолчанию */
+        background-color: var(--border-color); 
         border: none;
         cursor: pointer;
         transition: background-color 0.4s ease;
         outline: none;
-        justify-self: end; /* Держим прижатой к правому краю шапки */
+        justify-self: end; 
     }
 
-    /* Белый кружок (ползунок) */
     .theme-switch-slider {
         position: absolute;
         top: 3px;
@@ -511,12 +507,10 @@
         border-radius: 50%;
         background-color: #FFFFFF;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        /* Плавное движение с легким отскоком */
         transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         z-index: 2;
     }
 
-    /* Настройки векторных иконок */
     .theme-switch svg {
         width: 16px;
         height: 16px;
@@ -531,7 +525,6 @@
     margin-bottom: 5rem;
 }
 
-    /* Перекрашиваем элементы внутри только этой темной ленты */
    .bg-dark-ribbon .stat-number {
     color: var(--ribbon-text);
 }
@@ -540,11 +533,7 @@
         color: var(--ribbon-muted);
     }
 
-
-    /* =========================================
-    Состояние ТЕМНОЙ ТЕМЫ (Анимация переключения)
-    ========================================= */
-
+/* Темная тема для переключателя */
    [data-theme="dark"] .theme-switch {
     background-color: #2D3347;
 }
@@ -599,11 +588,30 @@
         margin: 2rem auto;
     }
 
-    /* Динамичная бегущая строка (Marquee) */ 
+    .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-    /* =========================================
-    Темный блок CTA (Call to Action)
-    ========================================= */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg-color);
+    transition: box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+/*call to action*/
 
     @keyframes spin {
         0% { transform: rotate(0deg); }
@@ -655,7 +663,6 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Элементы формы: стиль минимализма */
     .form-group {
         margin-bottom: 2rem;
         position: relative;
@@ -689,7 +696,6 @@
         border-bottom-color: var(--text-color);
     }
 
-    /* Ошибки валидации (пока скрыты) */
     .error-message {
         display: none;
         color: #e74c3c;
@@ -748,9 +754,7 @@
         padding: 3rem 0;
     }
 
-    /* =========================================
-   Contact Section
-   ========================================= */
+/*contact section*/
 .contact-section {
     padding: 6rem 0;
 }
@@ -922,45 +926,42 @@ a.contact-item:hover .contact-value {
 
 /* Крупная, статусная иконка */
 .success-icon {
-    width: 90px; /* Увеличили размер круга */
+    width: 90px; 
     height: 90px;
     border-radius: 50%;
-    border: 2.5px solid var(--accent-color); /* Сделали линию чуть толще */
+    border: 2.5px solid var(--accent-color); 
     
     /* Элегантная галочка через SVG */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17L4 12'/%3E%3C/svg%3E");
-    background-size: 45px; /* Увеличили размер самой галочки */
+    background-size: 45px; 
     background-repeat: no-repeat;
     background-position: center;
     
-    margin-bottom: 2rem; /* Отступ до текста */
+    margin-bottom: 2rem; 
     flex-shrink: 0;
 }
 
 /* Заголовок "Заявка принята" */
 .cf-success h3 {
-    font-size: 2rem; /* Сделали заметно крупнее */
+    font-size: 2rem; 
     font-weight: 500;
     color: var(--text-color);
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
 }
 
-/* Описание под заголовком */
+
 .cf-success p {
-    font-size: 1.1rem; /* Чуть увеличили текст */
+    font-size: 1.1rem; 
     color: var(--text-muted);
     max-width: 300px;
     line-height: 1.5;
 }
 
-/* =========================================
-   CTA Ribbon (Separator)
-   ========================================= */
+
 .cta-ribbon {
     padding: 5rem 0;
-    /* Мы используем твой существующий класс .bg-dark-ribbon, 
-       поэтому фон и отступы подтянутся автоматически */
+    
 }
 
 .cta-flex {
@@ -993,21 +994,19 @@ a.contact-item:hover .contact-value {
 }
 
 .cta-logo-accent {
-    /* ИЗМЕНЕНИЕ 1: Драматическое увеличение высоты */
     height: 280px; 
     width: auto;
     
-    /* Магия: делаем SVG белым специально для этой секции */
     filter: brightness(0) invert(1); 
     
-    opacity: 0.5; /* Почти полная непрозрачность для силы */
+    opacity: 0.5; 
     transition: all 0.3s ease;
  
 }
 
 .cta-ribbon:hover .cta-logo-accent {
-    opacity: 1; /* Полное высветление при наведении на всю ленту */
-    transform: scale(1.2); /* Легкий эффект пульсации */
+    opacity: 1; 
+    transform: scale(1.2); 
 }
 
 .dot-accent {
@@ -1015,17 +1014,15 @@ a.contact-item:hover .contact-value {
 }
 
 
-/* 3. Убедись, что обертка имеет относительное позиционирование */
 .contact-form-wrap {
     position: relative;
-    min-height: 400px; /* Должно совпадать с формой */
+    min-height: 400px; 
 }
 .contact-form.hidden {
     opacity: 0;
     pointer-events: none;
 }
 
-/* Состояние загрузки кнопки */
 .btn-contact-submit .btn-loading {
     display: none;
 }
@@ -1038,7 +1035,6 @@ a.contact-item:hover .contact-value {
     display: inline-block;
 }
 
-/* Валидация */
 .form-group .error-message {
     display: none;
     color: #e74c3c;
@@ -1057,9 +1053,7 @@ a.contact-item:hover .contact-value {
     display: block;
 }
 
-/* =========================================
-   Site Footer
-   ========================================= */
+/* Site Footer */
 .site-footer {
     background-color: var(--ribbon-bg);
     color: var(--ribbon-text);
@@ -1076,20 +1070,16 @@ a.contact-item:hover .contact-value {
 }
 
 .site-footer .footer-logo {
-    /* КРИТИЧНОЕ ИЗМЕНЕНИЕ: Драматическое увеличение высоты */
-    height: 140px; /* NEW SIZE: Теперь он мощный и заметный */
+    height: 140px;
     width: auto;
     
-    /* Магия: делаем SVG белым специально для этой секции */
     filter: brightness(0) invert(1); 
     
-    opacity: 0.95; /* Почти полная непрозрачность для силы */
+    opacity: 0.95; 
     transition: all 0.3s ease;
     
-    /* ИЗМЕНЕНИЕ 2: Запрещаем flex-контейнеру "плющить" лого */
     flex-shrink: 0;
     
-    /* Увеличим отступ снизу */
     margin-bottom: 2rem; 
     display: block;
 }
@@ -1163,12 +1153,9 @@ a.contact-item:hover .contact-value {
     text-decoration: none;
 }
 
-/* =========================================
-   МОБИЛЬНЫЙ (до 480px)
-   ========================================= */
+/* МОБИЛЬНЫЙ (до 480px)*/
 @media (max-width: 480px) {
 
-    /* Шапка */
     .header-inner {
         grid-template-columns: 1fr auto;
         padding: 1rem 0;
@@ -1178,7 +1165,6 @@ a.contact-item:hover .contact-value {
         transform: scale(3.5);
     }
 
-    /* Hero */
     .hero-premium {
         padding: 4rem 0 3rem;
     }
@@ -1208,7 +1194,6 @@ a.contact-item:hover .contact-value {
         width: 100%;
     }
 
-    /* Статистика */
     .stats-flex {
         flex-direction: column;
         align-items: center;
@@ -1220,7 +1205,6 @@ a.contact-item:hover .contact-value {
         text-align: center;
     }
 
-    /* Заголовки секций */
     .section-title {
         font-size: 1.8rem;
     }
@@ -1229,7 +1213,6 @@ a.contact-item:hover .contact-value {
         font-size: 1rem;
     }
 
-    /* Карточки услуг */
     .services-flex-container {
         flex-direction: column;
     }
@@ -1239,7 +1222,6 @@ a.contact-item:hover .contact-value {
         padding: 2rem;
     }
 
-    /* Карточки "Почему RESIDIA" */
     .features-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -1254,7 +1236,6 @@ a.contact-item:hover .contact-value {
         font-size: 3rem;
     }
 
-    /* CTA лента */
     .cta-flex {
         flex-direction: column;
         text-align: center;
@@ -1269,7 +1250,6 @@ a.contact-item:hover .contact-value {
         height: 60px;
     }
 
-    /* Контакты */
     .contact-section {
         padding: 4rem 0;
     }
@@ -1284,13 +1264,11 @@ a.contact-item:hover .contact-value {
         gap: 0;
     }
 
-    /* FAB */
     .fab-wrapper {
         bottom: 20px;
         right: 20px;
     }
 
-    /* Футер */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -1477,7 +1455,6 @@ a.contact-item:hover .contact-value {
     }
 }
 
-/* Скрываем nav только на мобилке */
 @media (max-width: 767px) {
     .header-inner {
         grid-template-columns: 1fr auto;
