@@ -1153,6 +1153,39 @@ a.contact-item:hover .contact-value {
     text-decoration: none;
 }
 
+/* =========================================
+   Legal Pages (Privacy, Terms)
+   ========================================= */
+.legal-page {
+    padding: 8rem 0;
+    background-color: var(--bg-color);
+}
+
+.last-updated {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+.legal-content h2 {
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.legal-content p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* Контейнер для текста, чтобы он не растягивался на весь экран */
+.container-small {
+    max-width: 800px !important;
+    margin: 0 auto;
+}
+
 /* МОБИЛЬНЫЙ (до 480px)*/
 @media (max-width: 480px) {
 
