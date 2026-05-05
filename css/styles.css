@@ -82,6 +82,19 @@
         align-items: center;
     }
 
+    .logo-link{
+    display: inline-block; 
+    text-decoration: none; 
+    transition: 0.3s ease;
+    }
+
+    .logo-link:hover {
+        transform: translateX(-10px); 
+
+        scale: 1.1;
+        opacity: 0.9;
+    }
+
     /* Стили для нового класса логотипа */
     .brand-logo {
         display: block;
