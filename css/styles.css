@@ -1058,7 +1058,6 @@ a.contact-item:hover .contact-value {
     background-color: var(--ribbon-bg);
     color: var(--ribbon-text);
     padding: 6rem 0 3rem;
-    margin-top: 6rem;
 }
 
 .footer-grid {
@@ -1174,36 +1173,169 @@ a.contact-item:hover .contact-value {
 }
 
 /* =========================================
-   Legal Pages (Privacy, Terms)
+   Privacy Page Split Layout
    ========================================= */
-.legal-page {
-    padding: 8rem 0;
+
+.legal-body {
     background-color: var(--bg-color);
 }
 
-.last-updated {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 3rem;
+.legal-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 2rem 0;
 }
 
-.legal-content h2 {
-    font-size: 1.5rem;
-    margin: 2.5rem 0 1rem;
+.legal-header .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Фикс ссылки возврата */
+.back-link {
+    text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50px;
+    transition: all 0.3s ease;
 }
 
-.legal-content p {
-    color: var(--text-muted);
+.back-link:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* Настройка выравнивания в колонках для лучшего чтения */
+.column-ru {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    align-items: flex-end;
+    text-align: right;
+    padding-right: 5%; /* Чуть больше отступа от центра */
+}
+
+.column-pl {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 5%; /* Чуть больше отступа от центра */
+}
+
+.legal-header .brand-logo {
+    height: 40px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.back-link:hover {
+    opacity: 0.7;
+}
+
+/* Сетка Grid (Требование ТЗ) */
+.legal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.legal-column {
+    padding: 10rem 10% 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стилизация колонок */
+.column-ru {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    align-items: flex-end;
+    text-align: right;
+}
+
+.column-pl {
+    background-color: var(--accent-color); /* Изумрудный фон */
+    color: #FFFFFF; /* Белый текст для контраста */
+    align-items: flex-start;
+}
+
+.column-content {
+    max-width: 550px;
+    width: 100%;
+}
+
+/* Элементы текста */
+.lang-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.6;
+}
+
+.legal-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.last-updated {
+    font-size: 0.85rem;
+    opacity: 0.5;
+    margin-bottom: 4rem;
+}
+
+.legal-section h3 {
+    font-size: 1.2rem;
+    margin: 2.5rem 0 1rem;
+    font-weight: 600;
+}
+
+.legal-section p {
     line-height: 1.8;
+    opacity: 0.8;
     margin-bottom: 1.5rem;
 }
 
-/* Контейнер для текста, чтобы он не растягивался на весь экран */
-.container-small {
-    max-width: 800px !important;
-    margin: 0 auto;
+/* Адаптивность для мобильных (Требование ТЗ) */
+@media (max-width: 992px) {
+    .legal-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .legal-column {
+        padding: 6rem 5% 4rem;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .legal-header {
+        position: relative;
+        background: var(--bg-color);
+    }
+    
+    .column-ru {
+        order: 1;
+    }
+    
+    .column-pl {
+        order: 2;
+    }
 }
 
 /* МОБИЛЬНЫЙ (до 480px)*/
@@ -1530,5 +1662,51 @@ a.contact-item:hover .contact-value {
     .header-inner {
         grid-template-columns: 1fr auto 1fr;
         padding: 1.5rem 0;
+    }
+}
+
+/* =========================================
+   Mobile Hotfix for Privacy Page
+   ========================================= */
+
+@media (max-width: 992px) {
+    /* 1. Складываем колонки друг под друга (Requirement: 2 breakpoints) */
+    .legal-grid {
+        grid-template-columns: 1fr; 
+        min-height: auto; /* Убираем фиксацию на высоту экрана */
+    }
+
+    /* 2. Настраиваем отступы, чтобы текст не лип к краям */
+    .legal-column {
+        padding: 5rem 1.5rem 3rem; /* Комфортные отступы для пальцев */
+        width: 100%;
+        display: block; /* Сбрасываем Flex для упрощения */
+    }
+
+    /* 3. Исправляем выравнивание текста (на мобилках лучше левое) */
+    .column-ru {
+        text-align: left; 
+        border-bottom: 1px solid var(--border-color); /* Разделитель между языками */
+    }
+
+    .column-content {
+        max-width: 100%; /* Текст занимает всю ширину */
+    }
+
+    /* 4. Исправляем шапку, чтобы она не перекрывала контент */
+    .legal-header {
+        position: relative; /* Вместо absolute, чтобы не "плавала" над текстом */
+        background-color: var(--bg-color);
+        padding: 1rem 0;
+    }
+
+    /* 5. Увеличиваем заголовки для читаемости */
+    .legal-title {
+        font-size: 1.8rem;
+    }
+
+    /* 6. Футер должен идти строго после контента */
+    .site-footer {
+        margin-top: 0;
     }
 }
