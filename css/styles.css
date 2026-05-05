@@ -599,6 +599,10 @@
     transform: translateY(0);
 }
 
+.animate-on-scroll.is-visible:hover {
+    transform: translateY(-10px);
+}
+
 .site-header {
     position: sticky;
     top: 0;
