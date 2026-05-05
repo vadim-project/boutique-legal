@@ -1153,6 +1153,26 @@ a.contact-item:hover .contact-value {
     text-decoration: none;
 }
 
+.form-disclaimer {
+    margin-top: 1.5rem; /* Отступ от кнопки */
+    font-size: 0.85rem; /* Делаем текст чуть меньше основного */
+    color: var(--text-muted); /* Приглушенный цвет */
+    line-height: 1.4;
+    text-align: center; /* Центрируем, если кнопка тоже по центру */
+    opacity: 0.8;
+}
+
+.form-disclaimer a {
+    color: var(--accent-color); /* Выделяем ссылку твоим изумрудным цветом */
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.form-disclaimer a:hover {
+    border-bottom-color: var(--accent-color); /* Красивое подчеркивание при наведении */
+}
+
 /* =========================================
    Legal Pages (Privacy, Terms)
    ========================================= */
