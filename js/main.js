@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const htmlElement = document.documentElement;
 
 // Если пользователь ещё не выбрал — берём системную тему
-const savedTheme = localStorage.getItem('theme') || 
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+const savedTheme = localStorage.getItem('theme') || 'light';
 
 htmlElement.setAttribute('data-theme', savedTheme);
 
