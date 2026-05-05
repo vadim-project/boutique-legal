@@ -1198,6 +1198,7 @@ a.contact-item:hover .contact-value {
 /* Фикс ссылки возврата */
 .back-link {
     text-decoration: none;
+    background-color: var(--card-bg);
     color: var(--text-color);
     font-weight: 500;
     font-size: 0.9rem;
