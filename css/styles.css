@@ -599,7 +599,7 @@
     transform: translateY(0);
 }
 
-.animate-on-scroll.is-visible:hover {
+.feature-card:hover {
     transform: translateY(-10px);
 }
 
