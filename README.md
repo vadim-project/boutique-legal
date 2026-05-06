@@ -1,5 +1,6 @@
 # RESIDIA Consulting — Legalizacja w Warszawie
-https://vadim-project.github.io/residia-consulting/
+
+https://residia.pl
 
 > **To nie jest projekt szkolny z fałszywymi danymi.**  
 > To działająca strona internetowa prawdziwej firmy konsultingowej z Warszawy.  
@@ -90,11 +91,10 @@ residia/
 ---
 
 ## Autor
+
 Rahozhnikau Vadzim
 Number albomu: 76346
 Projekt zrealizowany jako komercyjna strona internetowa dla RESIDIA Consulting, Warszawa.
 
-
-
-*Projekt spełnia wymagania przedmiotu "Wprowadzenie do Technologii Internetowych" —  
-responsywność, semantyczny HTML, CSS Grid/Flexbox, Vanilla JS, Fetch API, localStorage, walidacja formularzy.*
+_Projekt spełnia wymagania przedmiotu "Wprowadzenie do Technologii Internetowych" —  
+responsywność, semantyczny HTML, CSS Grid/Flexbox, Vanilla JS, Fetch API, localStorage, walidacja formularzy._
