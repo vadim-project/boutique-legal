@@ -1450,7 +1450,7 @@ a.contact-item:hover .contact-value {
     }
 
     .cta-logo-accent {
-        height: 60px;
+        height: 180px;
     }
 
     .contact-section {
@@ -1477,6 +1477,8 @@ a.contact-item:hover .contact-value {
         gap: 3rem;
         text-align: center;
     }
+
+ 
 
     .site-footer .footer-logo {
         height: 80px;
